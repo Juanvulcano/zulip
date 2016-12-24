@@ -1,7 +1,7 @@
-from six import text_type
+from six import Text
 
 def is_reserved_subdomain(subdomain):
-    # type: (text_type) -> bool
+    # type: (Text) -> bool
     if subdomain in ZULIP_RESERVED_SUBDOMAINS:
         return True
     if subdomain[-1] == 's' and subdomain[:-1] in ZULIP_RESERVED_SUBDOMAINS:
@@ -13,7 +13,7 @@ def is_reserved_subdomain(subdomain):
     return False
 
 def is_disposable_domain(domain):
-    # type: (text_type) -> bool
+    # type: (Text) -> bool
     return domain.lower() in DISPOSABLE_DOMAINS
 
 ZULIP_RESERVED_SUBDOMAINS = frozenset([
@@ -24,7 +24,7 @@ ZULIP_RESERVED_SUBDOMAINS = frozenset([
     'stories', 'testimonial', 'compare',
     'slack', 'mattermost', 'rocketchat', 'irc', 'twitter', 'zephyr',
     'zulip', 'tulip', 'humbug',
-    'plan9', 'electron', 'linux', 'mac', 'windows', 'cli', 'ubuntu', 'android', 'ios',
+    'plan9', 'electron', 'windows', 'mac', 'windows', 'cli', 'ubuntu', 'android', 'ios',
     'contribute', 'floss', 'foss', 'free', 'opensource', 'open', 'code',
     'intern', 'outreachy', 'gsoc', 'gci'])
 

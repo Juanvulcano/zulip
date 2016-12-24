@@ -70,7 +70,7 @@
         "language": "ruby",
         "group": "stable",
         "dist": "precise",
-        "os": "linux"
+        "os": "windows"
       },
       "status": 0,
       "result": 0,

@@ -16,13 +16,13 @@ import logging
 import subprocess
 import ujson
 
-from six import text_type
+from typing import Text
 
 @authenticated_json_view
 @has_request_variables
 def webathena_kerberos_login(request, user_profile,
                              cred=REQ(default=None)):
-    # type: (HttpRequest, UserProfile, text_type) -> HttpResponse
+    # type: (HttpRequest, UserProfile, Text) -> HttpResponse
     if cred is None:
         return json_error(_("Could not find Kerberos credential"))
     if not user_profile.realm.webathena_enabled:

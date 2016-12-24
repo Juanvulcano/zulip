@@ -4,7 +4,7 @@ import sys
 import functools
 
 from typing import Any, Callable, IO, Mapping, Sequence, TypeVar
-from six import text_type
+from six import Text
 
 def get_mapping_type_str(x):
     # type: (Mapping) -> str
@@ -48,7 +48,7 @@ def get_sequence_type_str(x):
         else:
             return '%s([%s, ...])' % (container_type, elem_type)
 
-expansion_blacklist = [text_type, bytes]
+expansion_blacklist = [Text, bytes]
 
 def get_type_str(x):
     # type: (Any) -> str

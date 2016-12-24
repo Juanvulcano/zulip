@@ -1,11 +1,11 @@
 from __future__ import absolute_import
 from typing import Optional, Any
-from six import text_type
+from six import Text
 from pyoembed import oEmbed, PyOembedException
 
 
 def get_oembed_data(url, maxwidth=640, maxheight=480):
-    # type: (text_type, Optional[int], Optional[int]) -> Any
+    # type: (Text, Optional[int], Optional[int]) -> Any
     try:
         data = oEmbed(url, maxwidth=maxwidth, maxheight=maxheight)
     except PyOembedException:

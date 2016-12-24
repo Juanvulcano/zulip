@@ -6,11 +6,11 @@ import hashlib
 import base64
 
 from typing import Optional
-from six import text_type
+from six import Text
 
 
 def initial_password(email):
-    # type: (text_type) -> Optional[text_type]
+    # type: (Text) -> Optional[Text]
     """Given an email address, returns the initial password for that account, as
        created by populate_db."""
 
