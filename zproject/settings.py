@@ -848,6 +848,14 @@ JS_SPECS = {
         ),
         'output_filename': 'min/activity.js'
     },
+    'stats': {
+        'source_filenames': (
+            'node_modules/plotly.js/dist/plotly.js',
+            'node_modules/jquery/dist/jquery.js',
+            'js/stats.js'
+        ),
+        'output_filename': 'min/stats.js'
+    },
     # We also want to minify sockjs separately for the sockjs iframe transport
     'sockjs': {
         'source_filenames': ('node_modules/sockjs-client/sockjs.js',),
@@ -963,8 +971,8 @@ LOGGING = {
             'propagate': False,
         },
         'django': {
-            'handlers': (['zulip_admins'] if ERROR_REPORTING else [])
-                        + ['console', 'file', 'errors_file'],
+            'handlers': (['zulip_admins'] if ERROR_REPORTING else [] +
+                         ['console', 'file', 'errors_file']),
             'level':    'INFO',
             'propagate': False,
         },
@@ -1022,8 +1030,8 @@ DBX_IOS_APP_ID = 'com.dropbox.Zulip'
 
 USING_APACHE_SSO = ('zproject.backends.ZulipRemoteUserBackend' in AUTHENTICATION_BACKENDS)
 
-if (len(AUTHENTICATION_BACKENDS) == 1 and
-    AUTHENTICATION_BACKENDS[0] == "zproject.backends.ZulipRemoteUserBackend"):
+if len(AUTHENTICATION_BACKENDS) == 1 and (AUTHENTICATION_BACKENDS[0] ==
+                                          "zproject.backends.ZulipRemoteUserBackend"):
     HOME_NOT_LOGGED_IN = "/accounts/login/sso"
     ONLY_SSO = True
 else:
